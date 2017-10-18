@@ -12,10 +12,10 @@ The output of the application are two files:
 <b>wp2_social.csv</b>
 and
 <b>wp2_social_YYYYMMDDHHMMSSnnnnnnn.json</b>
-
+<br/>
 The file <b>wp2_social.csv</b> is updated with its content. 
-
+<br/>
 The json file is created every time of the application running.
-
-To start using the software, you should download Python source file and execute like this:
+<br/>
+To start using the software, you should download Python source file and execute like this:<br/>
 <b>python3 WP2_SocialMediaPresence_Dev.py</b>
