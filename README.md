@@ -1,5 +1,5 @@
 # WP2-Social-Media-Presence
-Development stage of application for WP2 purposes.<br/><br/>
+Development stage of application for WP2 purposes.
 <br/><br/>
 The application is used to scrap all the links related to social media from websites that are put in:<br/>
 url.txt<br/>
