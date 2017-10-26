@@ -1,7 +1,7 @@
 # WP2-Social-Media-Presence
 Development stage of application for WP2 purposes.
 <br/><br/>
-The application is used to scrap all the links related to social media from websites that are put in:<br/>
+The application is used to scrape all the links related to social media from websites that are put in:<br/>
 url.txt<br/>
 file that should have the list of URLs in the following format:<br/>
 maslankowski.pl<br/>
@@ -18,4 +18,16 @@ The file <b>wp2_social.csv</b> is updated with its content.
 The json file is created every time of the application running.
 <br/><br/>
 To start using the software, you should download Python source file and execute like this:<br/>
-<b>python3 WP2_SocialMediaPresence_Dev.py</b>
+<b>python3 WP2_SocialMediaPresence_Dev.py</b><br/>
+or in selected MS Windows environment<br/>
+<b>py WP2_SocialMediaPresence_Dev.py</b>
+<br/><br/>
+IMPORTANT! Libraries <b>bs4</b> and <b>requests</b> are necessary. Depending on your Python environment try to install them that way:<br/>
+easy_install bs4<br/>
+easy_install requests<br/>
+OR<br/>
+pip3 install bs4<br/>
+pip3 install requests<br/>
+OR<br/>
+pip install bs4<br/>
+pip install requests<br/>
