@@ -6,10 +6,10 @@ import tweepy
 import csv
 
 # !!! put your keys in single quota in the four lines below
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
+consumer_key = 'gKB0hu0qR666VHQhzXoZUvuaP'
+consumer_secret = 'mGsZ0hVySzk9x7qDS79NsienmP4Fauxn8hyC2T4LvxUkcUkLr4'
+access_token = '775565018251333632-7pGvtUvqH9tyZyZpGxxjgpf63XuYcPZ'
+access_token_secret = 'ens5amtuJgaJz6Hck1uxv6AaJGp0gcVIzKoF1Lk1Wiqpv'
 
 # !!! replace ACCOUNT name of the enterprise to collect information from
 account_names=['jmaslankowski','GUS_stat']
@@ -26,16 +26,13 @@ def get_all_tweets(screen_name):
         new_tweets = api.user_timeline(screen_name = screen_name,count=200,max_id=oldest)
         alltweets.extend(new_tweets)
         oldest = alltweets[-1].id - 1
-        print ("%s tweets downloaded and still downloading...", len(alltweets))
-	# the output file is WP2_enterprise_... .csv where ... is the account name
+        print ("%s tweets downloaded and still downloading..." % len(alltweets))
+    # the output file is WP2_enterprise_... .csv where ... is the account name
     with open('WP2_enterprise_%s.csv' % screen_name, 'w') as f:
         for tweet in alltweets:
             outtweets = str(tweet.text)+"\n"
             f.write(outtweets)
     pass
-
 if __name__ == '__main__':
     for account in account_names:
         get_all_tweets(account)
-
-
