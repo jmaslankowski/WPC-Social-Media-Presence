@@ -1,6 +1,17 @@
 # WP2-Social-Media-Presence
 Development stage of application for WP2 purposes.
 <br/><br/>
+General Overview of the 4 steps:<br/>
+<b>(1) Collecting Social Media links</b><br/>
+WP2_SocialMediaPresence_Dev<br/>
+<b>(2) Collecting Tweets for training and testing purposes<br/>
+WP2_Step2a_CollectingTweetsByKeyword</b><br/>
+WP2_Step2b_CollectingTweetsByEnterprise<br/>
+<b>(3) Training and testing a dataset</b><br/>
+WP2_Step3_PurposeOfSocialMediaPresence<br/>
+<b>(4) Apply the data to check enterprise main purpose of SMP</b><br/>
+WP2_Step4_PurposeOfSocialMediaPresence<br/>
+<br/><br/>
 The application is used to scrape all the links related to social media from websites that are put in:<br/>
 url.txt<br/>
 file that should have the list of URLs in the following format:<br/>
