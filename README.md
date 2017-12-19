@@ -4,8 +4,8 @@ Development stage of application for WP2 purposes.
 General Overview of the 4 steps:<br/>
 <b>(1) Collecting Social Media links</b><br/>
 WP2_SocialMediaPresence_Dev<br/>
-<b>(2) Collecting Tweets for training and testing purposes<br/>
-WP2_Step2a_CollectingTweetsByKeyword</b><br/>
+<b>(2) Collecting Tweets for training and testing purposes</b><br/>
+WP2_Step2a_CollectingTweetsByKeyword<br/>
 WP2_Step2b_CollectingTweetsByEnterprise<br/>
 <b>(3) Training and testing a dataset</b><br/>
 WP2_Step3_PurposeOfSocialMediaPresence<br/>
