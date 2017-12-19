@@ -6,10 +6,10 @@ import tweepy
 import csv
 
 # !!! put your keys in single quota in the four lines below
-consumer_key = 'gKB0hu0qR666VHQhzXoZUvuaP'
-consumer_secret = 'mGsZ0hVySzk9x7qDS79NsienmP4Fauxn8hyC2T4LvxUkcUkLr4'
-access_token = '775565018251333632-7pGvtUvqH9tyZyZpGxxjgpf63XuYcPZ'
-access_token_secret = 'ens5amtuJgaJz6Hck1uxv6AaJGp0gcVIzKoF1Lk1Wiqpv'
+consumer_key = ''
+consumer_secret = ''
+access_token = ''
+access_token_secret = ''
 
 # !!! replace ACCOUNT name of the enterprise to collect information from
 account_names=['jmaslankowski','GUS_stat']
