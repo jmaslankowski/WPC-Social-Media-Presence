@@ -13,13 +13,9 @@ The file to clone is:<br/>
 <b>SocialMediaCollector.py<br/></b>
 which is a library that can be used by the following code in Python:<br/>
 To use in your own application - please import this way:<br/>
-<br/>
-  <b>import SocialMediaPresenceCollector as smpc<br/></b>
-<br/>
+<b>import SocialMediaPresenceCollector as smpc<br/></b>
 then start the application this way<br/>
-<br/>
 <b>smpsk=smpc.SocialMediaPresenceStarterKitt()<br/></b>
-<br/>
 <b>smpsk.start()<br/></b>
 <br/><br/>
 
