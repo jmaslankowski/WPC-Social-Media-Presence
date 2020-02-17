@@ -13,7 +13,7 @@ or just double-click on application in Graphical User Interface mode.<br/>
 
 1.2. PYTHON LIBRARY VERSION<br/>
 The file to clone is:<br/>
-<b>SocialMediaCollector.py<br/>
+<b>SocialMediaCollector.py<br/></b>
 which is a library that can be used by the following code in Python:<br/>
 To use in your own application - please import this way:<br/>
 <br/>
