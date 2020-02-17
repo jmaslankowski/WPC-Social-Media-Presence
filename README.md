@@ -3,14 +3,12 @@ GUIDELINES HOW TO START TO WORK WITH APPLICATION<br/>
 <br/>
 
 1. QUICK START OF THE APPLICATION<br/>
-
 1.1. STANDALONE VERSION<br/>
-<b>SocialMediaCollectorApp.py<br/>
+<b>SocialMediaCollectorApp.py<br/></b>
 which is a standalone application that can be used by the following command in command line interface:<br/>
 <b>python SocialMediaCollectorApp.py<br/></b>
 or just double-click on application in Graphical User Interface mode.<br/>
 <br/>
-
 1.2. PYTHON LIBRARY VERSION<br/>
 The file to clone is:<br/>
 <b>SocialMediaCollector.py<br/></b>
