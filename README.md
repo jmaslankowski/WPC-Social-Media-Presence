@@ -5,25 +5,25 @@ GUIDELINES HOW TO START TO WORK WITH APPLICATION<br/>
 1. QUICK START OF THE APPLICATION<br/>
 
 1.1. STANDALONE VERSION<br/>
-SocialMediaCollectorApp.py<br/>
+<b>SocialMediaCollectorApp.py<br/>
 which is a standalone application that can be used by the following command in command line interface:<br/>
-python SocialMediaCollectorApp.py<br/>
+<b>python SocialMediaCollectorApp.py<br/></b>
 or just double-click on application in Graphical User Interface mode.<br/>
 <br/>
 
 1.2. PYTHON LIBRARY VERSION<br/>
 The file to clone is:<br/>
-SocialMediaCollector.py<br/>
+<b>SocialMediaCollector.py<br/>
 which is a library that can be used by the following code in Python:<br/>
 To use in your own application - please import this way:<br/>
 <br/>
-import SocialMediaPresenceCollector as smpc<br/>
+  <b>import SocialMediaPresenceCollector as smpc<br/></b>
 <br/>
 then start the application this way<br/>
 <br/>
-smpsk=smpc.SocialMediaPresenceStarterKitt()<br/>
+<b>smpsk=smpc.SocialMediaPresenceStarterKitt()<br/></b>
 <br/>
-smpsk.start()<br/>
+<b>smpsk.start()<br/></b>
 <br/><br/>
 
 2. INPUT FILES<br/>
