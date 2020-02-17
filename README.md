@@ -1,13 +1,16 @@
 # WPC-Social-Media-Presence STARTER KITT
 GUIDELINES HOW TO START TO WORK WITH APPLICATION<br/>
 <br/>
+
 1. QUICK START OF THE APPLICATION<br/>
-1.1. STANDALONE VERSION <br/>
+
+1.1. STANDALONE VERSION<br/>
 SocialMediaCollectorApp.py<br/>
 which is a standalone application that can be used by the following command in command line interface:<br/>
 python SocialMediaCollectorApp.py<br/>
 or just double-click on application in Graphical User Interface mode.<br/>
 <br/>
+
 1.2. PYTHON LIBRARY VERSION<br/>
 The file to clone is:<br/>
 SocialMediaCollector.py<br/>
@@ -22,6 +25,7 @@ smpsk=smpc.SocialMediaPresenceStarterKitt()<br/>
 <br/>
 smpsk.start()<br/>
 <br/><br/>
+
 2. INPUT FILES<br/>
 The application is used to scrape all the links related to social media from websites that are put in:<br/>
 url.txt<br/>
@@ -85,7 +89,3 @@ WP2_Step3_PurposeOfSocialMediaPresence<br/>
 <b>(4) Apply the data to check enterprise main purpose of SMP</b><br/>
 WP2_Step4_PurposeOfSocialMediaPresence<br/>
 <br/><br/>
-
-OR<br/>
-pip install bs4<br/>
-pip install requests<br/>
