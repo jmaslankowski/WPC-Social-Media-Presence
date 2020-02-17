@@ -1,4 +1,4 @@
-# WP2-Social-Media-Presence
+# WPC-Social-Media-Presence
 <br/>
 There are to files prepared for the Starter Kitt:<br/>
 1)SocialMediaCollectorApp.py<br/>
