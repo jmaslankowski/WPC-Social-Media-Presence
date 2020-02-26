@@ -10,7 +10,6 @@ from bs4 import BeautifulSoup
 from collections import OrderedDict
 from datetime import datetime
 
-
 # Global variable to store the list for JSON purposes
 jsonList=[]
 
@@ -84,18 +83,21 @@ class FileAccess:
 class SocialMediaPresence:
     website=""
     def __init__(self, social_media_dict={
-                                    'Facebook': ['facebook.com'],
-                                     'Twitter': ['twitter.com'],
-                                     'Youtube': ["youtu.be", "youtube.com"],
-                                     'LinkedIn': ["linkedin.com"],
-                                     'Instagram': ["instagram.com"],
-                                     'Xing':['xing.com'],
-                                     'Pinterest': ['pinterest.com']} ):
+                                        'Facebook': ['facebook.com'],
+                                         'Twitter': ['twitter.com'],
+                                         'Youtube': ["youtu.be", "youtube.com"],
+                                         'LinkedIn': ["linkedin.com"],
+                                         'Instagram': ["instagram.com"],
+                                         'Xing':['xing.com'],
+                                         'Pinterest': ['pinterest.com']} ):
         # social_media_dict specifies which social media links should be found
         self.social_media_dict = social_media_dict
-     
     # this method finds all social media links on webpage
-    def searchSocialMediaLinks(self,website,level):        
+    def searchSocialMediaLinks(self,website,level='1'):
+        # websites are transformed to same form
+        if website != '':
+            website='http://'+website.lower().strip().replace('http://','').replace('https://','')
+
         try:
             headers = {'user-agent': 'python-app/0.1 experimental for statistical purposes'}
             r = requests.get(website, headers=headers)            
@@ -130,6 +132,7 @@ class SocialMediaPresence:
                             if domain in url:
                                 link_dict[social_media].add(url)
                                 print(url)
+
            # Count the number of found links
             n_links = 0
             for social_media in self.social_media_dict:
@@ -157,7 +160,7 @@ class SocialMediaPresence:
                         writer.writerow({item: ' ,'.join(link_dict[item]) for item in link_dict})
                 except IOError:
                     msg = ("Error writing CSV file.")     
-                    print(msg)      
+                    print(msg)
                 data = {}
                 data['URL'] = website
                 for social_media in self.social_media_dict:
@@ -165,13 +168,23 @@ class SocialMediaPresence:
                         data[social_media] = list(link_dict[social_media])
                     else:
                         data[social_media] = []
-                jsonList.append(data);
             smd=SocialMediaDeep();
             # if no links have been found on the main page, go one level deeper
             if none=='1' and level=='1' and len(URLs)>1:
                 smd.goDeeperToFindSocialMedia(website,URLs)
-  
-smp=SocialMediaPresence()
+            return data
+
+
+
+# %% Use functions (should later be removed from this file and added to starter kit)
+# Try social_media_dict without twitter
+social_media_dict = {'Facebook': ['facebook.com'],
+                      'Youtube': ["youtu.be", "youtube.com"],
+                      'LinkedIn': ["linkedin.com"],
+                      'Instagram': ["instagram.com"],
+                      'Xing':['xing.com'],
+                      'Pinterest': ['pinterest.com']}  
+smp=SocialMediaPresence(social_media_dict)
 fa=FileAccess()        
 jsonList=[]
 try:
@@ -182,9 +195,7 @@ except IOError:
     print(msg)
 else:
     for url in plik:
-        if url!="":
-            website='http://'+url.strip().replace('http://','').replace('https://','')
-            print("Website currently being scrapped: "+website)
-            smp.searchSocialMediaLinks(website,'1')
+            print("Website currently being scrapped: "+url)
+            jsonList.append(smp.searchSocialMediaLinks(url))
             print()
     fa.jsonListWrite(jsonList)
