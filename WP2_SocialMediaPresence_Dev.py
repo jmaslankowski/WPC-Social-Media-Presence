@@ -9,7 +9,8 @@ import os.path
 from bs4 import BeautifulSoup 
 from collections import OrderedDict
 from datetime import datetime
-import re
+
+
 # Global variable to store the list for JSON purposes
 jsonList=[]
 
@@ -81,7 +82,18 @@ class FileAccess:
 
 # class SocialMediaPresence includes one function responsible for finding popular Social Media websites
 class SocialMediaPresence:
-    website=""     
+    website=""
+    def __init__(self, social_media_dict={
+                                    'Facebook': ['facebook.com'],
+                                     'Twitter': ['twitter.com'],
+                                     'Youtube': ["youtu.be", "youtube.com"],
+                                     'LinkedIn': ["linkedin.com"],
+                                     'Instagram': ["instagram.com"],
+                                     'Xing':['xing.com'],
+                                     'Pinterest': ['pinterest.com']} ):
+        # social_media_dict specifies which social media links should be found
+        self.social_media_dict = social_media_dict
+     
     # this method finds all social media links on webpage
     def searchSocialMediaLinks(self,website,level):        
         try:
@@ -104,43 +116,31 @@ class SocialMediaPresence:
             # sets are used instead of lists to eliminate all duplicates automatically
             # sometimes inside the main page there are several links to Social Media, in this case all duplicates will be removed
             # but all Social Media links will be added to the final list
-            facebook=set([]);
-            twitter=set([]);
-            linkedin=set([]);
-            googleplus=set([]);
-            instagram=set([]);
-            youtube=set([]);
+            # Dictionary to store links for specific social media platforms
+            link_dict = {}
+            link_dict['URL'] = [website]
+            for social_media in self.social_media_dict:
+                link_dict[social_media] = set([])
             none='';
-            # modify this loop if you want to find more links
+            # this loops through through all specified social media domain names
             for url in URLs:
                 if url:
-                    if "facebook.com" in url:
-                        facebook.add(url)
-                        print (url)
-                    elif "twitter.com" in url:
-                        twitter.add(url)
-                        print (url)
-                    elif "plus.google.com" in url:
-                        googleplus.add(url)
-                        print (url)
-                    elif "linkedin.com" in url:
-                        linkedin.add(url)
-                        print (url)
-                    elif "youtube.com" in url:
-                        youtube.add(url)
-                        print (url)
-                    elif "youtu.be" in url:
-                        youtube.add(url)
-                        print (url)
-                    elif "instagram.com" in url:
-                        youtube.add(url)
-                        print (url)
-            if len(facebook)+len(twitter)+len(googleplus)+len(youtube)+len(instagram)+len(linkedin)==0:
+                    for social_media in self.social_media_dict:
+                        for domain in self.social_media_dict[social_media]:
+                            if domain in url:
+                                link_dict[social_media].add(url)
+                                print(url)
+           # Count the number of found links
+            n_links = 0
+            for social_media in self.social_media_dict:
+                n_links += len(link_dict[social_media])
+
+            if n_links==0:
                 print('No social media links have been found.')
                 none='1';
             else:
-                print('Total number of unique social media links found: '
-                      + str(len(facebook)+len(twitter)+len(googleplus)+len(youtube)+len(instagram)+len(linkedin)))
+                print('Total number of unique social media links found:',
+                      n_links)
             # if subpage does not have a social media URL - do not write this in the result file
             if not (none=='1' and level=='2'):            
                 try:
@@ -150,22 +150,21 @@ class SocialMediaPresence:
                     if not os.path.isfile(filename):
                         exists=0
                     with open (filename,'a') as file:
-                        if exists==0: file.write("URL;Facebook;Twitter;Youtube;LinkedIn;Instagram;GooglePlus\n")
-                        columnNames=['URL','Facebook','Twitter','Youtube','LinkedIn','Instagram','GooglePlus']                    
+                        if exists==0:
+                            file.write(';'.join(link_dict) + "\n")
+                        columnNames= list(link_dict.keys())                    
                         writer=csv.DictWriter(file,delimiter=';',dialect=csv.excel,fieldnames=columnNames)
-                        writer.writerow({'URL':website,'Facebook':', '.join(facebook),'Twitter':', '.join(twitter),'Youtube':', '.join(youtube),'LinkedIn':', '.join(linkedin),'Instagram':', '.join(instagram),'GooglePlus':', '.join(googleplus)})
+                        writer.writerow({item: ' ,'.join(link_dict[item]) for item in link_dict})
                 except IOError:
                     msg = ("Error writing CSV file.")     
                     print(msg)      
-                data={
-                   'url' : website,
-                   'Facebook' : list(facebook),
-                   'Twitter' : list(twitter),
-                   'Youtube' : list(youtube),
-                   'LinkedIn' : list(linkedin),
-                   'Instagram' : list(instagram),
-                   'GooglePlus' : list(googleplus)
-                }
+                data = {}
+                data['URL'] = website
+                for social_media in self.social_media_dict:
+                    if social_media in link_dict:
+                        data[social_media] = list(link_dict[social_media])
+                    else:
+                        data[social_media] = []
                 jsonList.append(data);
             smd=SocialMediaDeep();
             # if no links have been found on the main page, go one level deeper
