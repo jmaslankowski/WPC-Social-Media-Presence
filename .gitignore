@@ -1,0 +1,7 @@
+# Exclude scraped data
+*.json
+wp2_social.csv
+
+# Python checkpoints/history
+.ipynb_checkpoints
+__pycache__
